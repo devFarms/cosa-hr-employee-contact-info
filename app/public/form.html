@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+        <title>Form Test</title>
+        <style>
+            body {
+                font-family: sans-serif;
+                font-size: 125%;
+            }
+            #wrapper {
+                margin: 0 auto;
+                padding: 0;
+                width: 1600px;
+            }
+            .formItem {
+                padding: 10px;
+            }
+            .selectMenu {
+                font-size: 125%;
+                padding: 20px;
+                width: 540px;
+            }
+            
+            input[type=text] {
+                font-size: 125%;
+                padding: 20px;
+                width: 500px;
+            }
+            .labelStyle {
+                background-color: rgb(200, 243, 236);
+                display: inline-block;
+                font-size: 110%;
+                font-family: sans-serif;
+                font-weight: 700;
+                padding: 20px;
+                text-align: right;
+                width: 200px;
+            }
+
+            .button {
+                background-color: rgb(204, 204, 204);
+                border: 1px solid rgb(170, 170, 170);
+                margin: 0 0 0 10px;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 100%;
+                font-weight: 900;
+                }
+
+        </style>
+        <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+
+         </head>
+    <body>
+        <div id="wrapper">
+      <form name="formName"> 
+            <h2>Personal Information</h2>
+            <hr />
+            <div class="formItem" data-errormessage="">
+                <label for="inputEmpNum" class="labelStyle">Employee ID #</label>
+                <input type="text" name="inputEmpNum" id="inputEmpNum" autofocus placeholder="00000" />
+            </div>
+
+            <div class="formItem" data-errormessage="">
+                <label for="inputLastName" class="labelStyle">Last Name: </label>
+                <input type="text" name="inputLastName" id="inputLastName" placeholder="Spurgeon" />
+            </div>
+
+            <div class="formItem" data-errormessage="">
+                <label for="inputFirstName" class="labelStyle">First Name: </label>
+                <input type="text" name="inputFirstName" id="inputFirstName" placeholder="William" />
+            </div>
+
+            <div class="formItem" data-errormessage="">
+                <label for="inputPersonalEmail" class="labelStyle">Personal Email: </label>
+                <input type="text" name="inputPersonalEmail" id="inputPersonalEmail" placeholder="billyspur@gmail.com" />
+            </div>
+
+            <div class="formItem" data-errormessage="">
+                <label for="inputHomePhone" class="labelStyle">Home Phone #: </label>
+                <input type="text" name="inputHomePhone" id="inputHomePhone" placeholder="714-647-5200" />
+            </div>
+
+            <div class="formItem" data-errormessage="">
+                <label for="inputCellPhone" class="labelStyle">Cell Phone #: </label>
+                <input type="text" name="inputCellPhone" id="inputCellPhone" placeholder="714-647-5200" />
+            </div>
+
+            <div class="formItem" data-errormessage="">
+                <label for="inputCellCarrier" class="labelStyle">Cell Carrier: </label>
+                <select name="inputCellCarrier" id="inputCellCarrier" class="selectMenu">
+                    <option value="no-selction">Select Carrier</option>
+                    <option value="att">AT &amp; T</option>
+                    <option value="sprint">Sprint</option>
+                    <option value="t-mobile">T-Mobile</option>
+                    <option value="us-cellular">US Cellular</option>
+                </select>
+            </div>
+
+            <div class="formItem" data-errormessage="">
+                <label for="inputRecText" class="labelStyle">Recieve Text Messages: </label>
+                <select name="inputRecText" id="inputRecText" class="selectMenu">
+                    <option value="no-selction">Would you like to receive text messages?</option>
+                    <option value="true">Yes, please text me.</option>
+                    <option value="false">No, do not text me.</option>
+                </select>
+            </div>
+            <p>&nbsp;</p>
+            <h2>Emergency Contact Information</h2>
+            <hr />
+            <div class="formItem" data-errormessage="">
+                <label for="inputECFirstName" class="labelStyle">First Name: </label>
+                <input type="text" name="inputECFirstName" id="inputECFirstName" autofocus placeholder="Steven" />
+            </div>
+
+            <div class="formItem" data-errormessage="">
+                <label for="inputECLastName" class="labelStyle">Last Name: </label>
+                <input type="text" name="inputECLastName" id="inputECLastName" autofocus placeholder="Pham" />
+            </div>
+
+            <div class="formItem" data-errormessage="">
+                <label for="inputECRelationship" class="labelStyle">Relationship: </label>
+                <select name="inputECRelationship" id="inputECRelationship" class="selectMenu">
+                    <option value="no-selction">Please selct their relationship to you</option>
+                    <option value="spouse">Spouse</option>
+                    <option value="parent">Parent</option>
+                </select>
+            </div>
+
+            <div class="formItem" data-errormessage="">
+                <label for="inputECPhoneNum" class="labelStyle">Phone Number: </label>
+                <input type="text" name="inputECPhoneNum" id="inputECPhoneNum" autofocus placeholder="714-647-5200" />
+            </div>
+
+            <div class="formItem" data-errormessage="">
+                <label for="inputECEmail" class="labelStyle">Email address: </label>
+                <input type="text" name="inputECEmail" id="inputECEmail" autofocus placeholder="contact@domain.com" />
+            </div>
+            <p>&nbsp;</p>
+            <input type="button" value="Start Over" class="button" />
+            <input type="button" value="Hit Me!" class="button" onClick="collectInfo()" /><br /><br />
+            <a class="button" href="employees.csv">Download CSV</a>
+            <!-- <button type="submit" class="button">Hit Me!</button> -->
+        </form>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </div>
+    </body>
+    <script>
+       function collectInfo()
+       {
+           let empID = document.formName.inputEmpNum.value;
+           let lastName = document.formName.inputLastName.value;
+           let firstName = document.formName.inputFirstName.value;
+           let personalEmail = document.formName.inputPersonalEmail.value;
+           let homePhone = document.formName.inputHomePhone.value;
+           let cellPhone = document.formName.inputCellPhone.value;
+           let cellCarrier = document.formName.inputCellCarrier.value;
+           let recText = document.formName.inputRecText.value;
+           let ecFirstName = document.formName.inputECFirstName.value;
+           let ecLastName = document.formName.inputECLastName.value;
+           let ecRelationship = document.formName.inputECRelationship.value;
+           let ecPhone = document.formName.inputECPhoneNum.value;
+           let ecEmail = document.formName.inputECEmail.value;
+
+        //    let empInfo = empID + ', ' + lastName + ', ' + firstName + ', ' + personalEmail + ', ' + homePhone + ', ' + cellPhone + ', ' + cellCarrier + ', ' + recText + ', ' + ecFirstName + ', ' + ecLastName + ', ' + ecRelationship + ', ' + ecPhone + ', ' + ecEmail;
+        
+        let empInfo = {
+            employeeID: empID,
+            employeeLastName: lastName,
+            employeeFirstName: firstName,
+            employeePersonalEmail: personalEmail,
+            employeeHomePhone: homePhone,
+            employeeCellPhone: cellPhone,
+            employeeCellCarrier: cellCarrier,
+            employeeRecText: recText,
+            eConFirstName: ecFirstName,
+            eConLastName: ecLastName,
+            eConRelationship: ecRelationship,
+            eConPhone : ecPhone,
+            eConEmail : ecEmail
+        };
+        
+        console.log(empInfo); 
+
+        let currentURL = window.location.origin;
+
+           $.post(currentURL + '/api/haney', empInfo, function(data){
+               console.log('This was sent to Haney: ' + JSON.stringify(empInfo))
+           });
+           return false;
+       }
+       
+    </script>
+</html>
