@@ -17,17 +17,6 @@ module.exports = function (app) {
     app.post('/api/haney', function (req, res) {
         empInfo.push(req.body);
         res.json(true);
-        // console.log('This is from the API:\n' + JSON.stringify(empInfo));
-        // fs.appendFile('employees.csv', JSON.stringify(empInfo) + '\n', e => e ? console.log(e) : console.log('CSV Successfully updated!\n'));
-        // console.log(empInfo);
-        //     let empInfoDot = '';
-
-        //     for (var i = 0; i < empInfo.length; i++) { // Loop through object
-
-        //         empInfoDot +=  empInfo[i].employeeID +  ', ' + empInfo[i].employeeLastName +  ', ' + empInfo[i].employeeFirstName +  ', ' + empInfo[i].employeePersonalEmail +  ', ' + empInfo[i].employeeHomePhone +  ', ' + empInfo[i].employeeCellPhone +  ', ' + empInfo[i].employeeRecText +  ', ' + empInfo[i].eConFirstName +  ', ' + empInfo[i].eConLastName +  ', ' + empInfo[i].eConRelationship +  ', ' + empInfo[i].eConPhone +  ', ' + empInfo[i].eConEmail + '\n';
-        //       }
-        //   console.log(empInfoDot);
-        //   fs.appendFile('employees.csv', empInfoDot, e => e ? console.log(e) : console.log('CSV Successfully updated!\n'));
 
         let mostRecentEmp = empInfo[empInfo.length - 1];
 
@@ -39,16 +28,7 @@ module.exports = function (app) {
         
 
         setTimeout(function afterTwoSeconds() {
-            // console.log('2')
             fs.copyFile('employees.csv', 'app\\public\\employees.csv', callback);
-          }, 250)
-          
-        
-        
-
-        //   var my_array = /* some array here */;
-        //   var last_element = my_array[my_array.length - 1];
-
-
-    })
+          }, 250);
+    });
 };
