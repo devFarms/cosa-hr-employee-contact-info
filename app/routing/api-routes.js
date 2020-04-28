@@ -21,7 +21,7 @@ module.exports = function (app) {
         let mostRecentEmp = empInfo[empInfo.length - 1];
 
         let CSVmostRecentEmp = '';
-        CSVmostRecentEmp += mostRecentEmp.employeeID + ', ' + mostRecentEmp.employeeLastName + ', ' + mostRecentEmp.employeeFirstName + ', ' + mostRecentEmp.employeePersonalEmail + ', ' + mostRecentEmp.employeeHomePhone + ', ' + mostRecentEmp.employeeCellPhone + ', ' + mostRecentEmp.employeeCellCarrier + ', ' + mostRecentEmp.employeeRecText + ', ' + mostRecentEmp.eConFirstName + ', ' + mostRecentEmp.eConLastName + ', ' + mostRecentEmp.eConRelationship + ', ' + mostRecentEmp.eConPhone + ', ' + mostRecentEmp.eConEmail + '\n';
+        CSVmostRecentEmp += mostRecentEmp.employeeID + ', ' + mostRecentEmp.employeeLastName + ', ' + mostRecentEmp.employeeFirstName + ', ' + mostRecentEmp.employeePersonalEmail + ', ' + mostRecentEmp.employeeHomePhone + ', ' + mostRecentEmp.employeeCellPhone + ', ' + mostRecentEmp.employeeRecText + ', ' + mostRecentEmp.eConFirstName + ', ' + mostRecentEmp.eConLastName + ', ' + mostRecentEmp.eConRelationship + ', ' + mostRecentEmp.eConPhone + ', ' + mostRecentEmp.eConEmail + '\n';
 
         console.log(CSVmostRecentEmp);
         fs.appendFile('employees.csv', CSVmostRecentEmp, e => e ? console.log(e) : console.log('CSV Successfully updated!\n'));
